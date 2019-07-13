@@ -14,9 +14,9 @@
     {{ else if .Network }}
         # {{ .Container.Name }}
         {{ if .Network.IP }}
-        proxy_pass http://{{ .Network.IP }} down;
+        proxy_pass http://{{ .Network.IP }};
         {{ else }}
-        proxy_pass http://127.0.0.1 down;
+        proxy_pass http://127.0.0.1;
         {{ end }}
     {{ end }}
 
@@ -66,7 +66,7 @@ server {
                 {{ end }}
             {{ else }}
         # Cannot connect to network of this container
-        proxy_pass http://127.0.0.1 down;
+        proxy_pass http://127.0.0.1;
             {{ end }}
         {{ end }}
     {{ end }}
